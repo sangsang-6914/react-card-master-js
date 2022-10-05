@@ -1,8 +1,7 @@
+import Login from './components/login/login';
 
-function App() {
-  return (
-    <div>card master</div>
-  )
+function App({ authService }) {
+  return <Login authService={authService} />;
 }
 
 export default App;
