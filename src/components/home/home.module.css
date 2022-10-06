@@ -1,0 +1,17 @@
+@value makerWhite from '../../common/color.css';
+
+.home {
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  height: 50em;
+}
+
+.homeContent {
+  background-color: makerWhite;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
