@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Editor from '../editor/editor';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import Preview from '../preview/preview';
 import styles from './home.module.css';
 
 function Home({ authService }) {
-  const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
   const onLogout = () => {
     authService.logout();
   };
@@ -21,7 +21,10 @@ function Home({ authService }) {
     <>
       <section className={styles.home}>
         <Header onLogout={onLogout} />
-        <section className={styles.homeContent}>Home</section>
+        <section className={styles.homeContent}>
+          <Editor />
+          <Preview />
+        </section>
         <Footer />
       </section>
     </>

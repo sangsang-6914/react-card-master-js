@@ -1,17 +1,43 @@
-@value makerWhite from '../../common/color.css';
+@value makerWhite, makerGreen, makerLightGrey from '../../common/color.css';
+@value mediaQuery from '../../common/size.css';
 
 .home {
-  width: 70rem;
+  width: 80rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 50em;
 }
 
 .homeContent {
   background-color: makerWhite;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.cardMaker {
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  border: 1px solid makerLightGrey;
+}
+
+.cardPreview {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.cardMakerTitle {
+  color: makerGreen;
+  margin-right: 10px;
+}
+
+.cardPreviewTitle {
+  color: makerGreen;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .homeContent {
+    flex-direction: column;
+  }
 }
