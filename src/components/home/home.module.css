@@ -14,28 +14,6 @@
   flex: 1;
 }
 
-.cardMaker {
-  flex: 1 1 50%;
-  display: flex;
-  justify-content: center;
-  border: 1px solid makerLightGrey;
-}
-
-.cardPreview {
-  flex: 1 1 50%;
-  display: flex;
-  justify-content: center;
-}
-
-.cardMakerTitle {
-  color: makerGreen;
-  margin-right: 10px;
-}
-
-.cardPreviewTitle {
-  color: makerGreen;
-}
-
 @media screen and (max-width: mediaQuery) {
   .homeContent {
     flex-direction: column;

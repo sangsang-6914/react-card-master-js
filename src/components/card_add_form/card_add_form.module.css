@@ -1,0 +1,33 @@
+@value makerBlack from '../../common/color.css';
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  border-left: 1px solid makerBlack;
+  border-top: 1px solid makerBlack;
+}
+
+.input,
+.select,
+.textarea,
+.input,
+.fileInput {
+  border: 0;
+  border-right: 1px solid makerBlack;
+  border-bottom: 1px solid makerBlack;
+  padding: 0.5em;
+}
+
+.input,
+.select {
+  flex: 1 1 30%;
+}
+
+.textarea {
+  flex-basis: 100%;
+}
+
+.fileInput {
+  flex: 1 1 50%;
+  padding: 0;
+}
