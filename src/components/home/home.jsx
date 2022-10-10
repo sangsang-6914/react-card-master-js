@@ -6,7 +6,7 @@ import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './home.module.css';
 
-function Home({ authService }) {
+function Home({ authService, FileInput }) {
   const [cards, setCards] = useState({
     1: {
       id: '1',
@@ -16,7 +16,7 @@ function Home({ authService }) {
       email: 'woo@gmail.com',
       message: 'go for it',
       theme: 'dark',
-      fileName: 'woo',
+      fileName: null,
       fileUrl: null,
     },
     2: {
@@ -27,7 +27,7 @@ function Home({ authService }) {
       email: 'sang@gmail.com',
       message: 'go for it',
       theme: 'light',
-      fileName: 'sang',
+      fileName: null,
       fileUrl: null,
     },
     3: {
@@ -38,7 +38,7 @@ function Home({ authService }) {
       email: 'hun@gmail.com',
       message: 'go for it',
       theme: 'colorful',
-      fileName: 'hun',
+      fileName: null,
       fileUrl: null,
     },
   });
@@ -72,6 +72,7 @@ function Home({ authService }) {
         <Header onLogout={onLogout} />
         <section className={styles.homeContent}>
           <Editor
+            FileInput={FileInput}
             cards={cards}
             addCard={createOrupdateCard}
             updateCard={createOrupdateCard}

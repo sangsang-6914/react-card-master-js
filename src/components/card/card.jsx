@@ -7,6 +7,7 @@ function Card({ card }) {
   const { id, name, company, title, email, message, theme, fileName, fileUrl } =
     card;
   const url = fileUrl || DEFAULT_IMAGE;
+  console.log(url);
   return (
     <li className={`${styles.card} ${getStyles(theme)}`}>
       <img className={styles.avatar} src={url} alt="profile" />
