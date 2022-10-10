@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styles from './card.module.css';
 
-const DEFAULT_IMAGE = '/images/default_logo.png'
+const DEFAULT_IMAGE = '/images/default_logo.png';
 
-function Card({card}) {
-  const {id, name, company, title, email, message, theme, fileName, fileUrl} = card
+function Card({ card }) {
+  const { id, name, company, title, email, message, theme, fileName, fileUrl } =
+    card;
   const url = fileUrl || DEFAULT_IMAGE;
   return (
     <li className={`${styles.card} ${getStyles(theme)}`}>
@@ -17,11 +18,11 @@ function Card({card}) {
         <p className={styles.message}>{message}</p>
       </div>
     </li>
-  )
+  );
 }
 
 function getStyles(theme) {
-  switch(theme) {
+  switch (theme) {
     case 'dark':
       return styles.dark;
     case 'light':
@@ -29,8 +30,8 @@ function getStyles(theme) {
     case 'colorful':
       return styles.colorful;
     default:
-      throw new Error(`Unknown Theme: ${theme}`)
+      throw new Error(`Unknown Theme: ${theme}`);
   }
 }
 
-export default Card
+export default Card;
