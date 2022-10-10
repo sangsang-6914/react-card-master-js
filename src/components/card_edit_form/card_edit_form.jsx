@@ -70,7 +70,7 @@ function CardEditForm({ FileInput, card, updateCard, deleteCard }) {
         onChange={onChange}
       />
       <div className={styles.fileInput}>
-        <FileInput name={card.fileName} onFileChange={onFileChange} />
+        <FileInput name={fileName} onFileChange={onFileChange} />
       </div>
       <Button name="Delete" onClick={onSubmit} />
     </form>
