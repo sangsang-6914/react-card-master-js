@@ -6,42 +6,10 @@ import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './home.module.css';
 
-function Home({ authService, FileInput }) {
-  const [cards, setCards] = useState({
-    1: {
-      id: '1',
-      name: 'Woo',
-      company: 'Samsung',
-      title: 'Softwoare Engineer',
-      email: 'woo@gmail.com',
-      message: 'go for it',
-      theme: 'dark',
-      fileName: null,
-      fileUrl: null,
-    },
-    2: {
-      id: '2',
-      name: 'Sang',
-      company: 'Samsung',
-      title: 'Softwoare Engineer',
-      email: 'sang@gmail.com',
-      message: 'go for it',
-      theme: 'light',
-      fileName: null,
-      fileUrl: null,
-    },
-    3: {
-      id: '3',
-      name: 'Hun',
-      company: 'Samsung',
-      title: 'Softwoare Engineer',
-      email: 'hun@gmail.com',
-      message: 'go for it',
-      theme: 'colorful',
-      fileName: null,
-      fileUrl: null,
-    },
-  });
+function Home({ authService, FileInput, cardRepository }) {
+  const historyState = useLocation().state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
   const navigate = useNavigate();
   const onLogout = () => {
     authService.logout();
@@ -49,7 +17,11 @@ function Home({ authService, FileInput }) {
 
   useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) navigate('/');
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        navigate('/');
+      }
     });
   });
 
@@ -58,12 +30,14 @@ function Home({ authService, FileInput }) {
     const updated = { ...cards };
     updated[card.id] = card;
     setCards(updated);
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = (card) => {
     const deleted = { ...cards };
     delete deleted[card.id];
     setCards(deleted);
+    cardRepository.removeCard(userId, card);
   };
 
   return (
